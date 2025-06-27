@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>Project 1 - Federico Del Gaudio</title>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Federico <span>Del Gaudio</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="projects.html">Projects</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </nav>
+
+    <!-- Project Section -->
+    <section class="project-section">
+        <div class="container">
+            <!-- Project Title -->
+            <div class="project-header" data-aos="fade-down" data-aos-duration="1500">
+                <h1>Tears of ash</h1>
+                <p>Horror Scream jam 2024 <b>Role: Game designer</b></p>
+            </div>
+            <div class="trailer" data-aos="fade-up" data-aos-duration="1500">
+                <h2>Game Trailer</h2>
+                <video controls width="100%" style="max-width: 800px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    <source src="Tears of Ash (Scream Jam 24 entry) - TRAILER - ETP Studios (1080p, h264).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+    
+            <!-- Layout a due colonne -->
+            <div class="row">
+                <!-- Colonna sinistra: Descrizione -->
+                <div class="description" data-aos="fade-right" data-aos-duration="1500">
+                    <h2>About the Project</h2>
+                    <p>
+                        First game developed with a team of <b>four people</b> for a horror-themed game jam. 
+
+                        Step into a <b>chilling horror experience</b> inspired by P.T., where memories, dreams, reality, and guilt blend into a twisted nightmare. 
+                        
+                        Navigate through a haunting atmosphere as you confront disturbing visions and unravel the secrets buried in your mind. 
+                        
+                        Each fragment of your past holds a clue, challenging you to connect the dots and uncover the dark truth lurking beneath the surface.
+                        
+                        
+                        
+                    </p>
+                
+                </div>
+                <div class="project-buttons" data-aos="fade-up" data-aos-duration="1500">
+                    <a href="https://brrbrr9.itch.io/tearsofash" class="button">Game Page</a>
+                    <a href="https://www.youtube.com/watch?v=xevANeo-01Q" class="button">Game Trailer</a>
+                </div>
+                
+    
+                <!-- Colonna destra: Carosello -->
+                <div class="swiper-container" data-aos="fade-left" data-aos-duration="1500">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="project3.jpg" alt="Project Image 1">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="HXdSq5.jpg" alt="Project Image 2">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="Scream jam foto 3.jpg" alt="Project Image 2">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="screamjamfoto4.jpg" alt="Project Image 2">
+                        </div>
+                    
+                    
+                       
+                      
+                    </div>
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                
+            </div>
+            
+
+        </div>
+
+      
+    </section>
+
+    
+
+
+
+    
+    <!-- Footer -->
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init();
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+
+<footer class="footer-custom">
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>ABOUT ME</h3>
+            <p> am a passionate game design student, currently attending an academy, with a strong focus on creating engaging gaming experiences. </p>
+            <p>Through my studies, I’ve had the opportunity to apply my knowledge by developing small projects, and I’m eager to further expand my skills in the game design field.</p>
+        </div>
+        <div class="footer-column">
+            <h3>LATEST PROJECTS</h3>
+            <ul>
+                <li><a href="Project1.html">PUMMEL 2</a></li>
+                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="TearsOfAsh.html">Tears Of Ash</a></li>
+                
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>PORTFOLIO</h3>
+            <ul>
+                <li><a href="https://github.com/Federico-del-gaudio">GitHub</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>SOCIAL NETWORKS</h3>
+            <ul>
+                
+                <li><a href="https://www.instagram.com/emyportfolio/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/federico-del-gaudio-856314333/" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer Copyright -->
+<footer class="footer-main">
+    <p>Copyright © 2020-2024 Federico Del Gaudio</p>
+</footer>
+</body>
+</html>
