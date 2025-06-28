@@ -1046,3 +1046,72 @@ footer {
     margin: 0;
     font-size: 1rem;
 }
+.project-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .project-section .description,
+  .project-section .trailer,
+  .project-gallery .contributions,
+  .project-gallery .swiper-container {
+    flex: 1 1 100%;
+  }
+  
+  @media(min-width: 768px) {
+    .project-section .description,
+    .project-section .trailer,
+    .project-gallery .contributions,
+    .project-gallery .swiper-container {
+      flex: 1 1 50%;
+    }
+  }
+  
+  .contributions ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .contributions li {
+    margin-bottom: 0.5rem;
+  }
+  .project-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0;         /* rimuove spazio eccessivo sopra */
+    margin-bottom: 1rem;   /* riduce spazio sotto */
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    background-color: #3399ff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #007acc;
+  }
+  
+  .trailer video {
+    margin-bottom: 8px; /* pochissimi pixel sotto il video */
+  }
+  
+  /* Riduci spaziatura sotto l’intera sezione */
+  .project-section {
+    margin-bottom: 2rem;
+  }
+  .project-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
