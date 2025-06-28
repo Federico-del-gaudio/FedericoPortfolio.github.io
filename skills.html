@@ -3,144 +3,481 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills | Federico Del Gaudio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>Skills | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #e67e22;
+            --dark: #1a2a6c;
+            --darker: #0d1b2a;
+            --light: #ecf0f1;
+            --accent: #ff6b6b;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Particle background effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.3);
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px) scale(1.5); opacity: 0; }
+        }
+        
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(13, 27, 42, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburg {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+        
+        /* Main Content Container */
+        .page-container {
+            flex: 1;
+            padding: 140px 50px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        .skills-title {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .skills-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .skills-subtitle {
+            font-size: 2rem;
+            margin: 30px 0 20px;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skills-subtitle::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: var(--secondary);
+            border-radius: 50%;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: rgba(26, 42, 108, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 3px solid var(--secondary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            width: calc(33.333% - 14px);
+            min-width: 250px;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .skill-card p {
+            font-size: 1.2rem;
+            color: var(--light);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer-main {
+            background: rgba(13, 27, 42, 0.95);
+            padding: 25px;
+            text-align: center;
+            color: var(--light);
+            font-size: 1rem;
+            border-top: 2px solid var(--secondary);
+            margin-top: auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .skill-card {
+                width: calc(50% - 10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburg {
+                display: block;
+            }
+            
+            .page-container {
+                padding: 120px 20px 30px;
+            }
+            
+            .skills-title {
+                font-size: 3rem;
+            }
+            
+            .skills-subtitle {
+                font-size: 1.8rem;
+            }
+            
+            .skill-card {
+                width: 100%;
+            }
+
+            .learning-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: rgba(230, 126, 34, 0.2);
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+            border: 1px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .learning-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(230, 126, 34, 0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        @keyframes shine {
+            100% {
+                left: 100%;
+            }
+        }
+        
+        .more-to-come {
+            text-align: center;
+            margin-top: 30px;
+            font-style: italic;
+            color: var(--primary);
+            position: relative;
+            padding-top: 20px;
+        }
+        
+        .more-to-come::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--primary);
+        }
+        }
+        
+        @media (max-width: 480px) {
+            .skills-title {
+                font-size: 2.5rem;
+            }
+            
+            .skills-subtitle {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Particle background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation Bar -->
     <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Federico <span>Del Gaudio</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="projects.html">Projects</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
-            </div>
+        <div class="logo">Federico <span>Del Gaudio</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
-        </div>
+        <i class="fa-solid fa-bars hamburg"></i>
     </nav>
-    <section>
-        <div class="main-container">
-            <div class="content">
-                <!-- Sezione Technical Skills -->
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700">Technical Skills</h1>
-                <div class="skills-container" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
-                    <div class="skill">
+    
+    <!-- Main Content Container -->
+    <div class="page-container">
+        <section class="skills-section">
+            <!-- Technical Skills Section -->
+            <div data-aos="fade-right" data-aos-duration="1500">
+                <h1 class="skills-title">Technical Skills</h1>
+                
+                <!-- Software Subsection -->
+                <h2 class="skills-subtitle" data-aos="fade-right" data-aos-duration="1500">Software</h2>
+                <div class="skills-container">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
                         <p>Unity</p>
                     </div>
-                    <div class="skill">
-                        <p>Unreal Engine</p>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                        <p>Unreal Engine 4/5</p>
                     </div>
-                    <div class="skill">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                        <p>Visual scripting (Blueprints)</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                         <p>Visual Studio</p>
                     </div>
-                    <div class="skill">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
                         <p>Adobe Premiere Pro</p>
                     </div>
-                    <div class="skill">
-                        <p>Cisco Packet Tracer</p>
+                  
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="600">
+                        <p>Fork Tool</p>
                     </div>
-                    <div class="skill">
+                </div>
+                
+                <!-- Programming Languages Subsection -->
+                <h2 class="skills-subtitle" data-aos="fade-right" data-aos-duration="1500" data-aos-delay="200">Programming, Web & Data Languages</h2>
+                <div class="skills-container">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="700">
                         <p>C#</p>
                     </div>
-                    <div class="skill">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="800">
                         <p>HTML & CSS</p>
                     </div>
-                    <div class="skill">
-                        <p>MySQL</p>
-                    </div>
-                    <div class="skill">
-                        <p>GitHub</p>
-                    </div>
-                    <div class="skill">
-                        <p>Fork</p>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="900">
+                        <p>SQL</p>
                     </div>
                 </div>
-    
-                <!-- Sezione Design Skills -->
-                <h1 data-aos="fade-left" data-aos-duration="1500" data-aos-delay="700" class="design-title">Design Skills</h1>
-                <div class="skills-container" data-aos="flip-down" data-aos-duration="1500" data-aos-delay="1100">
-                    <div class="skill">
+            </div>
+            
+            <!-- Design Skills Section -->
+            <div data-aos="fade-left" data-aos-duration="1500">
+                <h1 class="skills-title">Design Skills</h1>
+                <div class="skills-container">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000">
                         <p>Mechanics and Gameplay Design</p>
                     </div>
-                    <div class="skill">
-                        <p>Level Design</p>
-                    </div>
-                    <div class="skill">
+                
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
                         <p>Prototyping</p>
                     </div>
-                    <div class="skill">
-                        <p>Detailed Documentation & Mockups</p>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                        <p>Detailed Documentation</p>
                     </div>
-                    <div class="skill">
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
                         <p>Pitching</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                        <p>Level Design</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                        <p>Balancing</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                        <p>Game Systems Design</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                        <p>UX Design</p>
+                    </div>
+                    <div class="skill-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                        <p>Quality Assurance</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    
-    
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({offset:0,});
-    </script>
-    <script src="script.js"></script>
-    <footer class="footer-custom">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>ABOUT ME</h3>
-                <p> am a passionate game design student, currently attending an academy, with a strong focus on creating engaging gaming experiences. </p>
-                <p>Through my studies, I’ve had the opportunity to apply my knowledge by developing small projects, and I’m eager to further expand my skills in the game design field.</p>
-            </div>
-            <div class="footer-column">
-                <h3>LATEST PROJECTS</h3>
-                <ul>
-                    <li><a href="Project1.html">PUMMEL 2</a></li>
-                    <li><a href="project2.html">Project 2</a></li>
-                    <li><a href="TearsOfAsh.html">Tears Of Ash</a></li>
-                    
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>PORTFOLIO</h3>
-                <ul>
-                    <li><a href="https://github.com/Federico-del-gaudio">GitHub</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>SOCIAL NETWORKS</h3>
-                <ul>
-                    
-                    <li><a href="https://www.instagram.com/emyportfolio/" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/federico-del-gaudio-856314333/" target="_blank">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Footer Copyright -->
+        </section>
+    </div>
+
     <footer class="footer-main">
         <p>Copyright © 2020-2024 Federico Del Gaudio</p>
     </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize AOS and particles
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            createParticles();
+        });
+    </script>
 </body>
 </html>
- 

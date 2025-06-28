@@ -3,132 +3,539 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Federico Del Gaudio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <title>About | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        :root {
+            --primary: #3498db;
+            --secondary: #e67e22;
+            --dark: #1a2a6c;
+            --darker: #0d1b2a;
+            --light: #ecf0f1;
+            --accent: #ff6b6b;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Particle background effect */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(52, 152, 219, 0.3);
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0) scale(0.5); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px) scale(1.5); opacity: 0; }
+        }
+        
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(13, 27, 42, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--secondary);
+        }
+        
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--light);
+            font-size: 1.2rem;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburg {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+        
+        /* Main Content Container */
+        .page-container {
+            flex: 1;
+            padding-bottom: 60px; /* Space for footer */
+        }
+        
+        /* About Section */
+        #about {
+            padding: 140px 50px 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 50px;
+        }
+        
+        .about-content {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .about-content h1 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .about-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #ccc;
+        }
+        
+        /* Enhanced Timeline - NEW DESIGN */
+        .timeline-container {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 40px;
+        }
+        
+        /* New date design - integrated into content */
+        .timeline-date {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--light);
+            padding: 8px 15px;
+            background: rgba(13, 27, 42, 0.8);
+            border-radius: 20px;
+            border: 2px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .timeline-date::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--darker);
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .timeline-icon {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        .timeline-content {
+            background: rgba(26, 42, 108, 0.7);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 3px solid var(--secondary);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .timeline-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+        
+        .project-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .project-button:hover {
+            background: linear-gradient(135deg, var(--secondary), #b34700);
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(230, 126, 34, 0.4);
+        }
+        
+        /* Current Status Indicator */
+        .current-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary);
+            color: var(--darker);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Footer */
+        .footer-main {
+            background: rgba(13, 27, 42, 0.95);
+            padding: 25px;
+            text-align: center;
+            color: var(--light);
+            font-size: 1rem;
+            border-top: 2px solid var(--secondary);
+            margin-top: auto; /* Pushes footer to bottom */
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content, .timeline-container {
+                max-width: 100%;
+            }
+            
+            .timeline-container {
+                margin-top: 50px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hamburg {
+                display: block;
+            }
+            
+            #about {
+                padding: 120px 20px 30px;
+            }
+            
+            .about-content h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content p {
+                font-size: 1.1rem;
+            }
+            
+            .timeline-date {
+                padding: 6px 12px;
+                font-size: 1rem;
+            }
+            
+            .timeline-date::before {
+                width: 16px;
+                height: 16px;
+                left: -40px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-content h3 {
+                font-size: 1.3rem;
+            }
+            
+            .timeline-date {
+                font-size: 0.9rem;
+                padding: 5px 10px;
+            }
+            
+            .timeline-date::before {
+                width: 14px;
+                height: 14px;
+                left: -35px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Particle background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation Bar -->
     <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Federico <span>Del Gaudio</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="about.html">About</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="skills.html">Skills</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="projects.html">Projects</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
-            </div>
+        <div class="logo">Federico <span>Del Gaudio</span></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-        <div class="dropdown">
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="skills.html">Skills</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
-        </div>
+        <i class="fa-solid fa-bars hamburg"></i>
     </nav>
+    
+    <!-- Main Content Container -->
+    <div class="page-container">
+        <!-- About Section -->
+        <section id="about">
+            <div class="main-container">
+                <!-- Text on left -->
+                <div class="about-content" data-aos="fade-right" data-aos-duration="1500">
+                    <h1>About Me</h1>
+                    <p>
+                        I'm Federico Del Gaudio, and I hold a high school diploma from a technical institute specializing in computer science. I have a strong passion for video games and a growing interest in game design.
+                    </p>
+                    <p>
+                        Currently, I'm attending an academy focused on game design, where I'm deepening my understanding of the skills needed to become a game designer, inspired by the possibility of creating interactive and immersive worlds.
+                    </p>
+                    <p>
+                        My journey has led me to explore the universe of Unreal Engine, where I've had the opportunity to experiment and bring my ideas to life through various projects.
+                    </p>
+                </div>
 
-    <section id="about">
-        <div class="main-container">
-            <!-- Testo a sinistra -->
-            <div class="about-content" data-aos="fade-left" data-aos-duration="1500">
-                <h1>About Me</h1>
-                <p>
-                    I'm Federico Del Gaudio, and I hold a high school diploma from a technical institute specializing in computer science. I have a strong passion for video games and a growing interest in game design.
-                </p>
-                <p>
-                    Currently, I'm attending an academy focused on game design, where I’m deepening my understanding of the skills needed to become a game designer, inspired by the possibility of creating interactive and immersive worlds.
-                </p>
-                <p>
-                    My journey has led me to explore the universe of Unreal Engine, where I’ve had the opportunity to experiment and bring my ideas to life through various projects.
-                </p>
-            </div>
-
-            <!-- Timeline a destra -->
-            <div class="timeline-container" data-aos="fade-right" data-aos-duration="1500">
-                <div class="timeline">
-                    <!-- Evento 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-node"></div>
-                        <div class="timeline-content">
-                            <h3>Technical Institute for Technology school diploma</h3>
-                            <p>My studies provided a solid foundation in computer science, algorithms, and problem-solving. This allowed me to independently create my first projects and develop essential skills for game development & game design.</p>
+                <!-- Enhanced Timeline on right - NEW DESIGN -->
+                <div class="timeline-container" data-aos="fade-left" data-aos-duration="1500">
+                    <div class="timeline">
+                        <!-- Event 1 - School -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <i class="fas fa-graduation-cap timeline-icon"></i> 2019-2024
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Technical Diploma</h3>
+                                <p>Completed my studies at a technical institute specializing in computer science, gaining foundational knowledge in programming, algorithms, and problem-solving.</p>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Evento 2 -->
-                    <!-- Evento 2 - Unreal Engine -->
-<div class="timeline-item">
-    <div class="timeline-node"></div>
-    <div class="timeline-content">
-        <h3>Unreal Engine</h3>
-        <p>Throughout my studies, I immersed myself in Unreal Engine, driven by my passion for game design and game development. In the 2022-2023 school year, I focused on developing my skills in Unreal Engine, creating my first prototypes and exploring the development of interactive experiences.</p>
-        <a href="projects.html" class="project-button"> View Projects</a> <!-- Aggiungi il link ai progetti -->
-    </div>
-</div>
-
-                    <!-- Evento 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-node"></div>
-                        <div class="timeline-content">
-                            <h3>Digital Bros Game Academy</h3>
-                            <p>Currently deepening my game design skills at Digital Bros Academy, focusing on vertical modules to become a professional game designer and work in development teams. My passion and dedication drive me to grow every day in pursuit of a successful career in the gaming industry.</p>
+                        
+                        <!-- Event 2 - Unreal Engine -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <i class="fas fa-gamepad timeline-icon"></i> 2022-2023
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Unreal Engine</h3>
+                                <p>Dedicated myself to mastering Unreal Engine, creating prototypes and developing interactive experiences. This period marked my transition from programming to game design.</p>
+                                <a href="projects.html" class="project-button">View Projects</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Event 3 - Academy -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">
+                                <i class="fas fa-university timeline-icon"></i> 2024-2026 <span class="current-status">CURRENT</span>
+                            </div>
+                            <div class="timeline-content">
+                                <h3>Digital Bros Academy</h3>
+                                <p>Currently enrolled in game design courses at Digital Bros Academy, focusing on professional development to become a skilled game designer capable of working in development teams.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({offset: 0});
-    </script>
-    <script src="script.js"></script>
-    <footer class="footer-custom">
-        <div class="footer-container">
-            <div class="footer-column">
-                <h3>ABOUT ME</h3>
-                <p> am a passionate game design student, currently attending an academy, with a strong focus on creating engaging gaming experiences. </p>
-                <p>Through my studies, I’ve had the opportunity to apply my knowledge by developing small projects, and I’m eager to further expand my skills in the game design field.</p>
-            </div>
-            <div class="footer-column">
-                <h3>LATEST PROJECTS</h3>
-                <ul>
-                    <li><a href="Project1.html">PUMMEL 2</a></li>
-                    <li><a href="project2.html">Project 2</a></li>
-                    <li><a href="TearsOfAsh.html">Tears Of Ash</a></li>
-                    
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>PORTFOLIO</h3>
-                <ul>
-                    <li><a href="https://github.com/Federico-del-gaudio">GitHub</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>SOCIAL NETWORKS</h3>
-                <ul>
-                    
-                    <li><a href="https://www.instagram.com/emyportfolio/" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.linkedin.com/in/federico-del-gaudio-856314333/" target="_blank">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Footer Copyright -->
     <footer class="footer-main">
         <p>Copyright © 2020-2024 Federico Del Gaudio</p>
     </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 20 + 5;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const animationDuration = Math.random() * 20 + 10;
+                const animationDelay = Math.random() * 5;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${animationDelay}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize AOS and particles
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+            
+            createParticles();
+        });
+    </script>
 </body>
 </html>

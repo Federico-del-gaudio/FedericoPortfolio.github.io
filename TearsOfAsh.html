@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tears of Ash - Federico Del Gaudio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -62,12 +63,12 @@
             100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
         }
         
-        /* Navigation Bar */
+        /* Navigation Bar - Stile uniformato alla pagina projects */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
+            padding: 20px 5%;
             background: rgba(13, 27, 42, 0.95);
             position: fixed;
             top: 0;
@@ -84,6 +85,7 @@
             font-weight: 700;
             color: var(--accent-blue);
             text-shadow: 0 0 15px rgba(52, 152, 219, 0.6);
+            font-family: 'Orbitron', sans-serif;
         }
         
         .logo span {
@@ -97,16 +99,18 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text-gray);
+            color: var(--text-light);
             font-size: 1.2rem;
             font-weight: 600;
             position: relative;
             transition: all 0.3s ease;
             padding: 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .nav-links a:hover {
-            color: var(--accent-blue);
+            color: var(--accent-orange);
         }
         
         .nav-links a::after {
@@ -123,6 +127,13 @@
         
         .nav-links a:hover::after {
             width: 100%;
+        }
+        
+        .hamburg {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-light);
         }
         
         /* Header section - Full width */
@@ -640,7 +651,7 @@
         
         @media (max-width: 768px) {
             .navbar {
-                padding: 15px 20px;
+                padding: 15px 5%;
             }
             
             .logo {
@@ -648,11 +659,11 @@
             }
             
             .nav-links {
-                gap: 20px;
+                display: none;
             }
             
-            .nav-links a {
-                font-size: 1rem;
+            .hamburg {
+                display: block;
             }
             
             .project-header {
@@ -681,17 +692,6 @@
         }
         
         @media (max-width: 480px) {
-            .navbar {
-                flex-direction: column;
-                padding: 15px;
-            }
-            
-            .nav-links {
-                margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
             .project-header h1 {
                 font-size: 2.5rem;
                 letter-spacing: 3px;
@@ -726,16 +726,17 @@
     <!-- Blood splatter background effect -->
     <div class="blood-splatter"></div>
     
-    <!-- Navigation Bar -->
+    <!-- Navigation Bar - Stile uniformato -->
     <nav class="navbar">
         <div class="logo">Federico <span>Del Gaudio</span></div>
         <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Skills</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
         </div>
+        <i class="fa-solid fa-bars hamburg"></i>
     </nav>
     
     <!-- Header section -->
@@ -837,12 +838,9 @@
     <footer class="project-footer">
         <h3>Federico Del Gaudio | Game Designer</h3>
         <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-itch-io"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Federico-del-gaudio"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/federico-del-gaudio-856314333/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/emyportfolio/"><i class="fab fa-instagram"></i></a>
         </div>
         <p class="copyright">© 2024 Federico Del Gaudio. All rights reserved.</p>
     </footer>
