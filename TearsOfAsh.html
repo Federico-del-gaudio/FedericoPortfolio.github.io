@@ -316,7 +316,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop') center/cover;
+            background: url('Videos/Tears\ of\ Ash\ \(Scream\ Jam\ 24\ entry\)\ -\ TRAILER\ -\ ETP\ Studios\ \(1080p\,\ h264\).mp4') center/cover;
             filter: blur(3px) brightness(0.3);
         }
         
@@ -347,6 +347,77 @@
             color: rgba(255, 255, 255, 0.9);
             margin-left: 8px;
         }
+        .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    overflow: auto;
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5vh;
+    animation: zoom 0.3s;
+    border: 3px solid var(--accent-orange);
+    box-shadow: 0 0 30px rgba(230, 126, 34, 0.6);
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--accent-orange);
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: #d63030;
+    transform: rotate(90deg);
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: var(--accent-orange);
+    font-weight: bold;
+    font-size: 2rem;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
         
         /* Gallery section - Full width */
         .gallery-section {
@@ -743,7 +814,7 @@
     <header class="project-header">
         <h1>Tears of Ash</h1>
         <h2>Horror Scream Jam 2024</h2>
-        <div class="subtitle">Role: <span>Game Designer</span></div>
+        <div class="subtitle">Role: <span>Game Designer/Level designer</span></div>
     </header>
     
     <!-- Main Content -->
@@ -759,40 +830,41 @@
         
         <!-- Trailer Section -->
         <section class="trailer-section">
-            <h3>Game Trailer</h3>
+            <h3>Trailer</h3>
             <div class="trailer-container">
                 <div class="trailer-placeholder">
-                    <div class="play-button">
+                    <video id="gameTrailer" width="100%" height="100%" controls style="display:none;">
+                        <source src="Videos/Tears of Ash (Scream Jam 24 entry) - TRAILER - ETP Studios (1080p, h264).mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-button" id="playTrailerButton">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
             </div>
             <div class="project-buttons">
-                <a href="#" class="project-button">
+                <a href="https://brrbrr9.itch.io/tearsofash" class="project-button" target="blank">
                     <i class="fas fa-gamepad"></i> Play on itch.io
                 </a>
-                <a href="#" class="project-button">
+                <a href="https://www.youtube.com/watch?v=xevANeo-01Q" class="project-button" target="blank">
                     <i class="fab fa-youtube"></i> Watch Trailer
                 </a>
             </div>
         </section>
-        
         <!-- Gallery Section -->
         <section class="gallery-section">
             <h3>Game Screenshots</h3>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?q=80&w=2070&auto=format&fit=crop" alt="Horror Game Environment">
+                    <img src="Photos/Scream jam foto 3.jpg" alt="Horror Game Environment">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" alt="Dark Corridor">
+                    <img src="Photos/Screamjamfoto2 (1).jpg" alt="Dark Corridor">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?q=80&w=2070&auto=format&fit=crop" alt="Eerie Atmosphere">
+                    <img src="Photos/screamjamfoto4.jpg" alt="Eerie Atmosphere">
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop" alt="Psychological Horror">
-                </div>
+             
             </div>
         </section>
         
@@ -802,8 +874,8 @@
             <div class="contributions-grid">
                 <div class="contribution-card">
                     <i class="fas fa-lightbulb"></i>
-                    <h4>Concept & Game Design</h4>
-                    <p>Developed the core horror concept and overall game design, focusing on psychological elements and player immersion.</p>
+                    <h4>Game Design & Horror events </h4>
+                    <p>Developed the core horror events focusing on psychological elements and player immersion.</p>
                 </div>
                 <div class="contribution-card">
                     <i class="fas fa-sitemap"></i>
@@ -815,21 +887,7 @@
                     <h4>Puzzle Design</h4>
                     <p>Created psychological horror mechanics and environmental puzzles that integrate seamlessly with the narrative.</p>
                 </div>
-                <div class="contribution-card">
-                    <i class="fas fa-users"></i>
-                    <h4>Team Coordination</h4>
-                    <p>Managed asset implementation and coordinated between artists, programmers, and sound designers.</p>
-                </div>
-                <div class="contribution-card">
-                    <i class="fas fa-book"></i>
-                    <h4>Narrative Development</h4>
-                    <p>Crafted the core narrative and collaborated on environmental storytelling elements.</p>
-                </div>
-                <div class="contribution-card">
-                    <i class="fas fa-cogs"></i>
-                    <h4>Mechanics Implementation</h4>
-                    <p>Implemented core gameplay mechanics and fine-tuned the horror experience.</p>
-                </div>
+               
             </div>
         </section>
     </main>
@@ -844,8 +902,71 @@
         </div>
         <p class="copyright">© 2024 Federico Del Gaudio. All rights reserved.</p>
     </footer>
-    
+         <!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+    <a class="next" onclick="changeImage(1)">&#10095;</a>
+</div>
     <script>
+              // Lightbox functionality
+              const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeLightbox = document.querySelector(".close-lightbox");
+        const galleryItems = document.querySelectorAll(".gallery-item img");
+        
+        // Current image index
+        let currentImageIndex = 0;
+        const images = Array.from(galleryItems).map(img => img.src);
+        
+        // Open lightbox when clicking on gallery image
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                currentImageIndex = index;
+                lightbox.style.display = "block";
+                lightboxImg.src = this.src;
+            });
+        });
+        
+        // Close lightbox
+        closeLightbox.addEventListener('click', function() {
+            lightbox.style.display = "none";
+        });
+        
+        // Close when clicking outside image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+        
+        // Change image function
+        window.changeImage = function(n) {
+            currentImageIndex += n;
+            
+            // Wrap around if at beginning or end
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            
+            lightboxImg.src = images[currentImageIndex];
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === "block") {
+                if (e.key === "ArrowLeft") {
+                    changeImage(-1);
+                } else if (e.key === "ArrowRight") {
+                    changeImage(1);
+                } else if (e.key === "Escape") {
+                    lightbox.style.display = "none";
+                }
+            }
+        });
         // Create ash particles
         document.addEventListener('DOMContentLoaded', function() {
             const body = document.querySelector('body');
@@ -861,36 +982,23 @@
             }
             
             // Play button functionality
-            const playButton = document.querySelector('.play-button');
+             // Trailer functionality
+        const playButton = document.getElementById('playTrailerButton');
+        const trailer = document.getElementById('gameTrailer');
+        
+        if (playButton && trailer) {
             playButton.addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-pause"></i>';
-                this.style.backgroundColor = '#d63030';
-                this.style.boxShadow = '0 0 40px rgba(214, 48, 48, 0.9)';
+                this.style.display = 'none';
+                trailer.style.display = 'block';
+                trailer.play().catch(e => console.error("Error playing video:", e));
                 
-                // Simulate trailer playing
-                const placeholder = document.querySelector('.trailer-placeholder');
-                placeholder.style.background = '#000';
-                placeholder.innerHTML = `
-                    <div style="
-                        position: absolute; 
-                        top: 0; 
-                        left: 0; 
-                        width: 100%; 
-                        height: 100%; 
-                        display: flex; 
-                        align-items: center; 
-                        justify-content: center; 
-                        background: rgba(0,0,0,0.7);
-                        color: #d63030; 
-                        font-size: 2rem; 
-                        text-align: center;
-                        padding: 20px;
-                        text-shadow: 0 0 10px rgba(214, 48, 48, 0.5);
-                    ">
-                        Trailer is playing...
-                    </div>
-                `;
+                trailer.addEventListener('ended', function() {
+                    playButton.style.display = 'flex';
+                    trailer.style.display = 'none';
+                });
             });
+        }
+        
             
             // Add subtle background animation
             const bloodSplatter = document.querySelector('.blood-splatter');
