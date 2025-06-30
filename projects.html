@@ -6,6 +6,9 @@
   <title>Projects | Federico Del Gaudio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <style>
     * {
@@ -276,7 +279,194 @@
       border-top: 2px solid var(--secondary);
       margin-top: 60px;
     }
+    /* Title Wrapper */
+.title-wrapper {
+  position: relative;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.engine-counters {
+  position: absolute;
+  bottom: -50px;
+  right: -85px;
+  display: flex;
+  gap: 25px;
+  background: rgba(26, 42, 108, 0.7);
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.counter-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.counter-icon {
+  font-size: 1.6rem;
+  color: var(--secondary);
+}
+
+.counter {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--light);
+  font-family: 'Orbitron', sans-serif;
+  min-width: 20px;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  color: var(--light);
+  opacity: 0.9;
+  margin-left: 3px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .engine-counters {
+    position: static;
+    margin: 20px auto 0;
+    justify-content: center;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 3rem;
+  }
+  
+  .engine-counters {
+    gap: 20px;
+    padding: 10px 15px;
+  }
+  
+  .counter, .counter-icon {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .engine-counters {
+    gap: 15px;
+    padding: 8px 12px;
+  }
+  
+  .counter-label {
+    font-size: 0.8rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .engine-counters {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    background: rgba(26, 42, 108, 0.3);
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-title {
+    font-size: 3rem;
+  }
+  
+  .counter {
+    font-size: 1.5rem;
+  }
+  
+  .counter-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .engine-counters {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .counter-label {
+    font-size: 0.8rem;
+  }
+}
     
+    /* Projects Header */
+.projects-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+  gap: 30px;
+}
+
+.engine-counters {
+  display: flex;
+  gap: 30px;
+}
+
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(26, 42, 108, 0.7);
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: 2px solid rgba(52, 152, 219, 0.3);
+  min-width: 150px;
+}
+
+.counter-icon img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.counter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  color: var(--light);
+  opacity: 0.8;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .projects-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .engine-counters {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .counter-container {
+    padding: 10px 15px;
+    min-width: 120px;
+  }
+  
+  .counter {
+    font-size: 2rem;
+  }
+}
     /* Featured Project Styles */
     .featured-wrapper {
       width: 100%;
@@ -461,7 +651,27 @@
   
   <!-- Projects Section -->
   <section class="projects-section">
-    <h1 class="projects-title" data-aos="fade-down">My Projects</h1>
+ 
+<!-- Modifica questa parte -->
+<div class="title-wrapper" data-aos="fade-down">
+  <h1 class="projects-title">My Projects</h1>
+  <div class="engine-counters">
+    <div class="counter-container">
+      <div class="counter-icon">
+        <i class="devicon-unrealengine-original"></i>
+      </div>
+      <div class="counter" data-target="3">0</div>
+      <span class="counter-label">Unreal</span>
+    </div>
+    <div class="counter-container">
+      <div class="counter-icon">
+        <i class="fab fa-unity"></i>
+      </div>
+      <div class="counter" data-target="3">0</div>
+      <span class="counter-label">Unity</span>
+    </div>
+  </div>
+</div>
     
     <div class="widget-container">
       <div class="featured-wrapper" data-aos="zoom-in">
@@ -484,7 +694,7 @@
         </div>
       </div>
      
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/project1.jpg" alt="PUMMEL " class="project-image">
         <div class="project-content">
           <h2>PUMMEL</h2>
@@ -504,7 +714,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/Projecta photy.png" alt="Project A" class="project-image">
         <div class="project-content">
           <h2>Project A</h2>
@@ -521,7 +731,7 @@
         </div>
       </div>
 
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/RagnaraftLogo.png" alt="Tears of Ash" class="project-image">
         <div class="project-content">
           <h2>Ragnaraft</h2>
@@ -537,7 +747,7 @@
         </div>
       </div>
       
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="700">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/project3.jpg" alt="Combat System" class="project-image">
         <div class="project-content">
           <h2>Tears of Ash</h2>
@@ -553,7 +763,7 @@
         </div>
       </div>
       
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="900">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/THE BUBBLE COVER.png" alt="AI Behavior" class="project-image">
         <div class="project-content">
           <h2>The bubble</h2>
@@ -569,7 +779,7 @@
         </div>
       </div>
       
-      <div class="project-card" data-aos="zoom-in" data-aos-delay="1100">
+      <div class="project-card" data-aos="zoom-in" data-aos-delay="1">
         <img src="Photos/DOCimage.png" alt="Level Design" class="project-image">
         <div class="project-content">
           <h2>Character design DOC</h2>
@@ -593,6 +803,59 @@
 
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
+    // Counter animation with better performance
+// Counter animation with better timing
+function animateCounter(counter) {
+  const target = +counter.getAttribute('data-target');
+  const duration = 1500; // 1.5 seconds
+  const startTime = performance.now();
+  
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const value = Math.floor(progress * target);
+    counter.textContent = value;
+    
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    } else {
+      counter.textContent = target; // Ensure final value is exact
+    }
+  }
+  
+  requestAnimationFrame(updateCounter);
+}
+
+// Initialize counters when visible
+function initCounters() {
+  const counters = document.querySelectorAll('.counter');
+  let animated = false;
+  
+  function checkScroll() {
+    const titleWrapper = document.querySelector('.title-wrapper');
+    if (!titleWrapper || animated) return;
+    
+    const rect = titleWrapper.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      animated = true;
+      counters.forEach(counter => {
+        animateCounter(counter);
+      });
+      window.removeEventListener('scroll', checkScroll);
+    }
+  }
+  
+  window.addEventListener('scroll', checkScroll);
+  checkScroll(); // Check immediately in case already visible
+}
+
+document.addEventListener('DOMContentLoaded', initCounters);
+document.addEventListener('DOMContentLoaded', () => {
+  const countersSection = document.querySelector('.projects-header');
+  if (countersSection) {
+    observer.observe(countersSection);
+  }
+});
     // Create particles
     function createParticles() {
       const particlesContainer = document.getElementById('particles');

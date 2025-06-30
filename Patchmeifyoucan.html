@@ -162,8 +162,8 @@
             font-size: 4.5rem;
             text-transform: uppercase;
             margin-bottom: 10px;
-            color: #d63030;
-            text-shadow: 0 0 20px rgba(214, 48, 48, 0.7);
+            color: #30bdd6;
+            text-shadow: 0 0 20px rgba(48, 78, 214, 0.7);
             letter-spacing: 6px;
             font-weight: 900;
             position: relative;
@@ -180,13 +180,13 @@
         .project-header .subtitle {
             font-size: 1.4rem;
             color: var(--text-light);
-            background: rgba(90, 0, 0, 0.4);
+            background: #1e6a77;
             padding: 15px 30px;
             border-radius: 30px;
             display: inline-block;
             margin-top: 20px;
             border: 1px solid #8a0303;
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
             font-weight: 500;
             position: relative;
         }
@@ -316,7 +316,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop') center/cover;
+            background: url('Videos/TrailerPMIC.mp4') center/cover;
             filter: blur(3px) brightness(0.3);
         }
         
@@ -508,6 +508,237 @@
             line-height: 1.8;
             font-size: 1.1rem;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+                   /* Combat Design Section */
+    .combat-design-section {
+        grid-column: 1 / -1;
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        border: 1px solid #d63030;
+        margin-top: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .combat-design-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('https://www.transparenttextures.com/patterns/dark-wood.png');
+        opacity: 0.2;
+        pointer-events: none;
+    }
+    
+    .combat-design-section h3 {
+        font-size: 2.5rem;
+        color: #d63030;
+        margin-bottom: 40px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(214, 48, 48, 0.4);
+        text-align: center;
+        position: relative;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    }
+    
+    .combat-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+    }
+    
+    .combat-card {
+        background: rgba(40, 20, 30, 0.7);
+        border-radius: 10px;
+        padding: 25px;
+        display: flex;
+        gap: 20px;
+        transition: all 0.3s ease;
+        border: 1px solid var(--accent-blue);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .combat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(214, 48, 48, 0.6);
+        border-color: #d63030;
+    }
+    
+    .combat-icon {
+        font-size: 2rem;
+        color: var(--accent-orange);
+        min-width: 50px;
+        text-align: center;
+        padding-top: 5px;
+    }
+    
+    .combat-content h4 {
+        font-size: 1.5rem;
+        color: var(--accent-blue);
+        margin-bottom: 15px;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    }
+    
+    .combat-content ul {
+        padding-left: 20px;
+        color: var(--text-light);
+        line-height: 1.8;
+    }
+    
+    .combat-content li {
+        margin-bottom: 8px;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+    
+    .combat-content strong {
+        color: var(--light-orange);
+    }
+    
+    @media (max-width: 768px) {
+        .combat-features {
+            grid-template-columns: 1fr;
+        }
+        
+        .combat-card {
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+     /* Aggiungi questi nuovi stili alla sezione CSS esistente */
+
+        /* Modal per il GDD */
+        .gdd-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow: auto;
+        }
+
+        .gdd-modal-content {
+            background: var(--card-bg);
+            margin: 5% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(52, 152, 219, 0.6);
+            border: 2px solid var(--accent-orange);
+            position: relative;
+        }
+
+        .close-gdd {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: var(--accent-orange);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-gdd:hover {
+            transform: rotate(90deg);
+            color: #d63030;
+        }
+
+        .gdd-iframe {
+            width: 100%;
+            height: 70vh;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+                           /* Lightbox/Gallery Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    overflow: auto;
+    text-align: center;
+}
+
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    margin-top: 5vh;
+    animation: zoom 0.3s;
+    border: 3px solid var(--accent-orange);
+    box-shadow: 0 0 30px rgba(230, 126, 34, 0.6);
+}
+
+@keyframes zoom {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--accent-orange);
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-lightbox:hover {
+    color: #d63030;
+    transform: rotate(90deg);
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: var(--accent-orange);
+    font-weight: bold;
+    font-size: 2rem;
+    transition: 0.3s;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--accent-blue);
+}
+
+        /* Stile per il link che punta alla sezione combat */
+        .combat-link {
+            scroll-margin-top: 100px;
         }
         
         /* Buttons section */
@@ -719,7 +950,9 @@
             .contribution-card {
                 padding: 25px 20px;
             }
-        }
+
+  
+}
     </style>
 </head>
 <body>
@@ -741,8 +974,8 @@
     
     <!-- Header section -->
     <header class="project-header">
-        <h1>Tears of Ash</h1>
-        <h2>Horror Scream Jam 2024</h2>
+        <h1>Patch me if you can</h1>
+        <h2>FPS Academy project</h2>
         <div class="subtitle">Role: <span>Game Designer</span></div>
     </header>
     
@@ -751,28 +984,33 @@
         <!-- About Section -->
         <section class="about-section">
             <h3>About the Project</h3>
-            <p>First game developed with a team of <span class="highlight">four people</span> for a horror-themed game jam.</p>
-            <p>Step into a <span class="highlight">chilling horror experience</span> inspired by P.T., where memories, dreams, reality, and guilt blend into a twisted nightmare.</p>
-            <p>Navigate through a haunting atmosphere as you confront disturbing visions and unravel the secrets buried in your mind. Each fragment of your past holds a clue, challenging you to connect the dots and uncover the dark truth lurking beneath the surface.</p>
-            <p>Our goal was to create a psychological horror experience that stays with players long after they finish the game. The environment design uses subtle audio cues and visual distortions to create a sense of unease and tension throughout the experience.</p>
+            <p>This is a fast-paced <span class="highlight">first-person shooter </span> where you play as a voodoo tailor on a mission to stitch back together and purify your runaway creations, now scattered across eerie amusement park attractions. The setting blends the bizarre and the whimsical, creating a unique atmosphere that sets the tone for a fresh and stylized FPS experience.</p>
+            <p>The gameplay features high-speed, fluid movement inspired by classic titles like Ape Escape. Players are encouraged to stay mobile, chaining actions quickly while navigating in levels filled with misbehaving creations. This <span class="highlight">fast-paced rhythm </span> keeps the action engaging and constantly evolving.</p>
+            <p>Thanks to the dedication and synergy of the entire team, we were able to deliver a  fun experience. Each member contributed with passion and creativity, allowing us to craft a game that not only plays well but also offers a distinct visual and thematic identity.</p>
+            <p>This academic project was also a major opportunity for <span class="highlight"> personal growth</span>. I focused particularly on  <span class="highlight">combat design</span>, and more specifically on the development of <span class="highlight">shooting systems — refining weapon mechanics, player feedback</span>, and pacing to support the game’s energetic feel. </p>
+
+           
         </section>
-        
-        <!-- Trailer Section -->
+       
         <section class="trailer-section">
             <h3>Game Trailer</h3>
             <div class="trailer-container">
                 <div class="trailer-placeholder">
-                    <div class="play-button">
+                    <video id="gameTrailer" width="100%" height="100%" controls style="display:none;">
+                        <source src="Videos/TrailerPMIC.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="play-button" id="playTrailerButton">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
             </div>
             <div class="project-buttons">
-                <a href="#" class="project-button">
-                    <i class="fas fa-gamepad"></i> Play on itch.io
+                <a href="#" class="project-button" id="gddButton">
+                    <i class="fa-solid fa-file"></i> See GDD
                 </a>
-                <a href="#" class="project-button">
-                    <i class="fab fa-youtube"></i> Watch Trailer
+                <a href="#combat-design" class="project-button combat-link">
+                    <i class="fa-solid fa-info"></i> More info
                 </a>
             </div>
         </section>
@@ -782,16 +1020,22 @@
             <h3>Game Screenshots</h3>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?q=80&w=2070&auto=format&fit=crop" alt="Horror Game Environment">
+                    <img src="Photos/FotoAndrei1.png" alt="Horror Game Environment">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2070&auto=format&fit=crop" alt="Dark Corridor">
+                    <img src="Photos/ImageSteam.png" alt="Dark Corridor">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1546443046-ed1ce6ffd1ab?q=80&w=2070&auto=format&fit=crop" alt="Eerie Atmosphere">
+                    <img src="Photos/ImageSteam3.png" alt="Eerie Atmosphere">
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071&auto=format&fit=crop" alt="Psychological Horror">
+                    <img src="Photos/ImageSteam4.png" alt="Psychological Horror">
+                </div>
+                <div class="gallery-item">
+                    <img src="Photos/ImageSteam6.png" alt="Psychological Horror">
+                </div>
+                <div class="gallery-item">
+                    <img src="Photos/ImageSteam14.png" alt="Psychological Horror">
                 </div>
             </div>
         </section>
@@ -803,37 +1047,112 @@
                 <div class="contribution-card">
                     <i class="fas fa-lightbulb"></i>
                     <h4>Concept & Game Design</h4>
-                    <p>Developed the core horror concept and overall game design, focusing on psychological elements and player immersion.</p>
+                    <p>I collaborated with the other designers to develop concepts and ideas for the game during the early stages of development.</p>
                 </div>
                 <div class="contribution-card">
-                    <i class="fas fa-sitemap"></i>
-                    <h4>Level Structure</h4>
-                    <p>Designed the non-linear level structure and pacing to maximize tension and narrative discovery.</p>
+                    <i class="fa-solid fa-gun"></i>
+                    <h4>Combat feedbacks</h4>
+                    <p>I documented in the GDD how our in-game weapon should function from a technical perspective, including enemy feedback and UI feedback systems.</p>
                 </div>
                 <div class="contribution-card">
-                    <i class="fas fa-puzzle-piece"></i>
-                    <h4>Puzzle Design</h4>
-                    <p>Created psychological horror mechanics and environmental puzzles that integrate seamlessly with the narrative.</p>
+                    <i class="fa-solid fa-table"></i>
+                    <h4>Economy Design</h4>
+                    <p>Handled testing and fine-tuning of weapon mechanics, enemy economy, and UI feedback.</p>
                 </div>
-                <div class="contribution-card">
-                    <i class="fas fa-users"></i>
-                    <h4>Team Coordination</h4>
-                    <p>Managed asset implementation and coordinated between artists, programmers, and sound designers.</p>
-                </div>
+               
                 <div class="contribution-card">
                     <i class="fas fa-book"></i>
-                    <h4>Narrative Development</h4>
-                    <p>Crafted the core narrative and collaborated on environmental storytelling elements.</p>
+                    <h4> Design Document </h4>
+                    <p>In this project, I was primarily responsible for writing and maintaining the Game Design Document (GDD).</p>
                 </div>
                 <div class="contribution-card">
-                    <i class="fas fa-cogs"></i>
-                    <h4>Mechanics Implementation</h4>
-                    <p>Implemented core gameplay mechanics and fine-tuned the horror experience.</p>
+                    <i class="fa-solid fa-music"></i>
+                    <h4>Sound design</h4>
+                    <p>I handled the sound aspect of our game, including sourcing sound assets and mixing them directly within the engine</p>
                 </div>
             </div>
         </section>
     </main>
-    
+
+    <section id="combat-design" class="combat-design-section">
+        <h3>Combat Design Breakdown</h3>
+        
+        <div class="combat-features">
+            <!-- Weapon Mechanics -->
+            <div class="combat-card">
+                <div class="combat-icon">
+                    <i class="fas fa-gun"></i>
+                </div>
+                <div class="combat-content">
+                    <h4>Weapon Core Mechanics</h4>
+                    <p>The stitching gun combines ranged combat with melee finishing moves.</p>
+                    <ul>
+                        <li>Fire your needle  at medium range.The player has a single projectile (a needle); once fired, they must wait for the needle to return to the weapon before firing again.</li>
+                        <li>The player can shoot while sliding, jumping, or crouching.</li>
+                        <li>Once the needle hits and attaches to an enemy, the player must repeatedly press the "E" key to pull the enemy toward them.</li>
+                        <li>When firing or hooking an enemy, the player is slowed until the needle returns to the rifle or for the duration of the hook </li>
+                        <li> if the player misses his shot the player is slowed until the needle returns and the weapon is re-primed.
+                        </li>
+                    </ul>
+                    <p><strong> ...And more in the GDD</strong></p>
+                </div>
+            </div>
+            
+            <!-- Enemy Design -->
+            <div class="combat-card">
+                <div class="combat-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="combat-content">
+                    <h4>Enemy Design</h4>
+                    <p>Each enemy type has unique behaviors and weak points:</p>
+                    <ul>
+                        <li>Puppets wander around the map</li>
+                        <li>Puppets have two conical fields of view.Both cones extend degrees vertically and horizontally. </li>
+                        <li>Each puppet has a spherical hearing range with a radius </li>
+                        <li>If a standing player enters this hearing radius, the puppet will turn toward them and run away.</li>
+                        <li>While escaping, puppets will dynamically use tunnels, obstacles, and sudden jumps/turns to increase distance from the player.</li>
+                        <p>The enemy design is inspired from the game "<strong> ape escape</strong>"</p>
+                        <strong> ...More in the GDD</strong>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Movement System -->
+           
+            
+            <!-- Feedback Systems -->
+            <div class="combat-card">
+                <div class="combat-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="combat-content">
+                    <h4>Feedback Systems</h4>
+                    <p>Clear feedback reinforces player actions:</p>
+                    <ul>
+                        <li>Visual hit text showing that the enemy is locked on your needle</li>
+                        <li>Audio cues for successful hits </li>
+                        <li>Visual effect when you're crouching</li>
+                        <li>Skull eye color changing when hitting an enemy or when enemy are close</li>
+                        <li>Visual effect on top of the enemy model when they spots you</li>
+                        <strong> ...More in the GDD</strong>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="gddModal" class="gdd-modal">
+        <div class="gdd-modal-content">
+            <span class="close-gdd">&times;</span>
+            <h3>Game Design Document</h3>
+            <iframe src="Photos/GDD Patch me if you can.pdf" class="gdd-iframe"></iframe>
+            <p style="text-align: center; margin-top: 15px;">
+                <a href="Photos/GDD Patch me if you can.pdf" download class="project-button">
+                    <i class="fas fa-download"></i> Download GDD
+                </a>
+            </p>
+        </div>
+    </div>
     <!-- Footer -->
     <footer class="project-footer">
         <h3>Federico Del Gaudio | Game Designer</h3>
@@ -842,10 +1161,73 @@
             <a href="https://www.linkedin.com/in/federico-del-gaudio-856314333/"><i class="fab fa-linkedin"></i></a>
             <a href="https://www.instagram.com/emyportfolio/"><i class="fab fa-instagram"></i></a>
         </div>
-        <p class="copyright">© 2024 Federico Del Gaudio. All rights reserved.</p>
+        <p class="copyright">© 2025 Federico Del Gaudio. All rights reserved.</p>
     </footer>
-    
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next" onclick="changeImage(1)">&#10095;</a>
+    </div>
     <script>
+
+              // Lightbox functionality
+              const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeLightbox = document.querySelector(".close-lightbox");
+        const galleryItems = document.querySelectorAll(".gallery-item img");
+        
+        // Current image index
+        let currentImageIndex = 0;
+        const images = Array.from(galleryItems).map(img => img.src);
+        
+        // Open lightbox when clicking on gallery image
+        galleryItems.forEach((img, index) => {
+            img.addEventListener('click', function() {
+                currentImageIndex = index;
+                lightbox.style.display = "block";
+                lightboxImg.src = this.src;
+            });
+        });
+        
+        // Close lightbox
+        closeLightbox.addEventListener('click', function() {
+            lightbox.style.display = "none";
+        });
+        
+        // Close when clicking outside image
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+        
+        // Change image function
+        window.changeImage = function(n) {
+            currentImageIndex += n;
+            
+            // Wrap around if at beginning or end
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            }
+            
+            lightboxImg.src = images[currentImageIndex];
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === "block") {
+                if (e.key === "ArrowLeft") {
+                    changeImage(-1);
+                } else if (e.key === "ArrowRight") {
+                    changeImage(1);
+                } else if (e.key === "Escape") {
+                    lightbox.style.display = "none";
+                }
+            }
+        });
         // Create ash particles
         document.addEventListener('DOMContentLoaded', function() {
             const body = document.querySelector('body');
@@ -860,46 +1242,62 @@
                 body.appendChild(particle);
             }
             
-            // Play button functionality
-            const playButton = document.querySelector('.play-button');
-            playButton.addEventListener('click', function() {
-                this.innerHTML = '<i class="fas fa-pause"></i>';
-                this.style.backgroundColor = '#d63030';
-                this.style.boxShadow = '0 0 40px rgba(214, 48, 48, 0.9)';
-                
-                // Simulate trailer playing
-                const placeholder = document.querySelector('.trailer-placeholder');
-                placeholder.style.background = '#000';
-                placeholder.innerHTML = `
-                    <div style="
-                        position: absolute; 
-                        top: 0; 
-                        left: 0; 
-                        width: 100%; 
-                        height: 100%; 
-                        display: flex; 
-                        align-items: center; 
-                        justify-content: center; 
-                        background: rgba(0,0,0,0.7);
-                        color: #d63030; 
-                        font-size: 2rem; 
-                        text-align: center;
-                        padding: 20px;
-                        text-shadow: 0 0 10px rgba(214, 48, 48, 0.5);
-                    ">
-                        Trailer is playing...
-                    </div>
-                `;
-            });
-            
-            // Add subtle background animation
+            // Blood splatter animation
             const bloodSplatter = document.querySelector('.blood-splatter');
             let offset = 0;
             setInterval(() => {
                 offset = (offset + 0.1) % 100;
                 bloodSplatter.style.backgroundPosition = `${offset}% ${offset}%`;
             }, 50);
+            
+            // Trailer functionality
+            const playButton = document.getElementById('playTrailerButton');
+            const trailer = document.getElementById('gameTrailer');
+            
+            if (playButton && trailer) {
+                playButton.addEventListener('click', function() {
+                    this.style.display = 'none';
+                    trailer.style.display = 'block';
+                    trailer.play().catch(e => console.error("Error playing video:", e));
+                    
+                    trailer.addEventListener('ended', function() {
+                        playButton.style.display = 'flex';
+                        trailer.style.display = 'none';
+                    });
+                });
+            }
+            
+            // GDD Modal functionality
+            const modal = document.getElementById("gddModal");
+            const btn = document.getElementById("gddButton");
+            const span = document.getElementsByClassName("close-gdd")[0];
+    
+            if (btn) btn.onclick = function(e) {
+                e.preventDefault();
+                modal.style.display = "block";
+            }
+    
+            if (span) span.onclick = function() {
+                modal.style.display = "none";
+            }
+    
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+    
+            // Smooth scroll
+            document.querySelectorAll('.combat-link').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
+        
     </script>
 </body>
 </html>
